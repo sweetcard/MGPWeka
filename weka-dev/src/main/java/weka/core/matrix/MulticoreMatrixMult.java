@@ -5,8 +5,10 @@
 
 
 /**
- * @author tengel
- * Contact: tengel@inf.ufsm.br
+ * @authors 
+ * {tengel,andrea}@inf.ufsm.br, 
+ * Luiz-Angelo.Steffenel@univ-reims.fr, 
+ * Manuele.Kirsch-Pinheiro@univ-paris1.fr
  */
 
 package weka.core.matrix;
