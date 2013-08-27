@@ -13,6 +13,7 @@ trunk/weka-dev/src/main/java/weka/core/matrix/MulticoreMatrixMult.java
 trunk/weka-dev/src/main/java/weka/core/matrix/Matrix.java ->method times(Matrix B)
 
 Authors:
+
 tengel@inf.ufsm.br - Universidade Federal de Santa Maria - Brazil
 
 andrea@inf.ufsm.br - Universidade Federal de Santa Maria - Brazil
