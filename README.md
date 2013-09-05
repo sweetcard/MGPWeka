@@ -3,6 +3,8 @@ MGPWeka
 
 Implements Matrix Multiplication using Multicore and GPU approaches.
 
+Dataset from UCI Repository: http://archive.ics.uci.edu/ml/datasets/Relative+location+of+CT+slices+on+axial+axis
+
 - GPU Implementation -> Using JCublas library
 trunk/weka-dev/src/main/java/weka/core/matrix/JCublasMatrixMultiplication.java
 
