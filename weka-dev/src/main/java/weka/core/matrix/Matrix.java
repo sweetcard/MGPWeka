@@ -32,6 +32,7 @@ import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.StringTokenizer;
+import jcuda.runtime.JCuda;
 
 /**
  * Jama = Java Matrix class.
@@ -895,13 +896,7 @@ public class Matrix
         }
         return this;
     }
-    /// method call counter...
-    static int mult = 0;
-
-    public static int getMult() {
-        return mult;
-    }
-
+    
     /**
      * Linear algebraic matrix multiplication, A * B
      *
@@ -912,13 +907,21 @@ public class Matrix
     public Matrix times(Matrix B) {
         if (B.m != n) {
             throw new IllegalArgumentException("Matrix inner dimensions must agree.");
-        }
-        mult++;
+        }        
         // Defines which option is gonna be used. only ONE can be true!
+        // By default, if is there a GPU device, the multiplication will use it.
+        // Otherwise, the multiplication uses the avaliable cores 
+        int[] dc = {-1};
         boolean gpu_only = false;
         boolean ncore_only = false;
         boolean gpu_sequential = false;
-        boolean ncore_sequential = true;
+        boolean ncore_sequential = false;
+        JCuda.cudaGetDeviceCount(dc);
+        if(dc[0] >= 1){
+            gpu_sequential = true;
+        }else{
+            ncore_sequential = true;
+        }
         // const used to set a minimal number of columns to do the paralel multip.
         final int OFFSET = 4;
         

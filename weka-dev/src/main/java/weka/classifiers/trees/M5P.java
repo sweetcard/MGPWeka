@@ -256,6 +256,5 @@ public class M5P
    */
   public static void main(String[] args) {
     runClassifier(new M5P(), args);
-    System.out.println("Matrix "+ weka.core.matrix.Matrix.getMult());
   } 
 }
