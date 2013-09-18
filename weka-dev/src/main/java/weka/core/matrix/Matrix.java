@@ -911,17 +911,11 @@ public class Matrix
         // Defines which option is gonna be used. only ONE can be true!
         // By default, if is there a GPU device, the multiplication will use it.
         // Otherwise, the multiplication uses the avaliable cores 
-        int[] dc = {-1};
         boolean gpu_only = false;
         boolean ncore_only = false;
         boolean gpu_sequential = false;
-        boolean ncore_sequential = false;
-        JCuda.cudaGetDeviceCount(dc);
-        if(dc[0] >= 1){
-            gpu_sequential = true;
-        }else{
-            ncore_sequential = true;
-        }
+        boolean ncore_sequential = true;
+
         // const used to set a minimal number of columns to do the paralel multip.
         final int OFFSET = 4;
         
